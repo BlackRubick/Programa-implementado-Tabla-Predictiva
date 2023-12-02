@@ -31,7 +31,7 @@ def procesar_formulario():
              | function_call
              | if_statement
              | while_statement
-             | function_declaration  // Añadido aquí
+             | function_declaration
 
     var_assignment: CNAME "=" expr
     function_call: CNAME "(" ")"    // Sin cambios aquí

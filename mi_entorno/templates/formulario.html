@@ -18,6 +18,22 @@
                 <p>El codigo no funciona</p>
             {% endif %}
         </div>
+        {% if bandera %}
+    <div class="txtarea-pila">
+        {% for elemento in pila %}
+            <li>{{ elemento }}</li>
+        {% endfor %}
+        <p>Análisis sintáctico CORRECTO de la pila</p>
+    </div>
+    {% else %}
+    <div class="txtarea-pila">
+        {% for elemento in pila %}
+            <li>{{ elemento }}</li>
+        {% endfor %}
+        <p>Análisis sintáctico INCORRECTO de la pila</p>
+    </div>
+    {% endif %}
+
     {% endif %}
 </body>
 </html>

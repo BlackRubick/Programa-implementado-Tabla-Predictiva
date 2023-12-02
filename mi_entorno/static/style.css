@@ -49,3 +49,20 @@ textarea:focus {
     height:50px;
     border-color: #07106d;
 }
+
+.txtarea-pila{
+    margin-top: 10px;
+    overflow: auto;
+    resize: vertical;
+    color: rgb(255, 255, 255);
+    width:95.5%;
+    height:180px;
+    border-color: #07106d;
+    background-color: rgb(48, 48, 48);
+    border-radius: 15px;
+    overflow: auto;
+    resize: vertical;
+    max-height: 350px; 
+    padding: 10px 20px;
+    margin-left: 12px;
+}
