@@ -1,39 +1,145 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Página con Textarea</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Profe Dianita</title>
+
+    <style>
+        *{
+            font-family: monospace;
+        }
+        input {
+            position: absolute;
+            right: 2.5%;
+            top: 21%;
+            background-color: #857aeb;
+            color: #030f63;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 15px;
+            z-index: 100;
+            font-family: cursive;
+            font-size: 30px;
+            box-shadow: 3px 3px 3px #000000;
+        }
+
+        input:hover {
+            background-color: #423c77;
+            color: #7d8aee;
+            cursor: pointer;
+        }
+
+        input:active {
+            top: 21.5%;
+            box-shadow: 1px 1px 1px #000000;
+        }
+
+        form {
+            padding-top: 120px;
+            text-align: center;
+        }
+
+        .text-area {
+            position: relative;
+            z-index: 0;
+            width: 95%;
+            height: 350px;
+            outline: none;
+            background-color: rgba(52, 115, 58, 0.95);
+            border-radius: 2px;
+            resize: none;
+            font-weight: bold;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        body {
+            background-image: url('../static/cesar.jpeg');
+            background-size: cover;
+        }
+
+        .div-bandera {
+            margin-left: 12px;
+            background-color: #b8b8b8;
+            width: 98%;
+            height: auto;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 2px;
+            border-left: 1px solid #000000;
+            border-right: 1px solid #000000;
+        }
+
+        .bandera2{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+            background-color: #023942;
+            color: #ffffff;
+            border-radius: 2px;
+            font-size: 16px;
+        }
+
+        .conteiner{
+            padding: 20px;
+            height: 80%;
+            width: 100%;
+            color: #000000;
+            border-radius: 2px;
+            font-size: 12px;
+        }
+
+        .bandera2 p{
+            margin-left: 10px;
+        }
+
+        .error{
+            color: red;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 <body>
+<h1 style="text-align: center; color: #ffffff; padding-top: 50px; ">SuchiapaScript 2.0 </h1>
     <form method="POST" action="/procesar_formulario">
-        <textarea class="text-area" name="texto" rows="4" cols="50">{{ texto }}</textarea>
+        <textarea class="text-area" name="texto" rows="4" cols="50" placeholder="Escribilo aqui tu codigo vos ija ">{{ texto }}</textarea>
         <br>
-        <input type="submit" value="Enviar">
+        <input type="submit" value=">">
     </form>
-    {% if bandera != '' %}
         <div class="div-bandera">
-            {% if bandera %}
-                <p>El codigo si funciona</p>
-            {% else %}
-                <p>El codigo no funciona</p>
-            {% endif %}
+            <div class="bandera2">
+                <p>Salida : </p>
+            </div>
+            <div class="conteiner">
+                {% if bandera != '' %}
+                <p class="error">{{ error }}</p>
+                {% if isCorrect %}
+                    <p>simon si jala </p>
+                {% else %}
+                    <p>no carnal no jala </p>
+                {% endif %}
+            </div>
         </div>
-        {% if bandera %}
-    <div class="txtarea-pila">
+        {% if isCorrect %}
+    <div class="div-bandera">
         {% for elemento in pila %}
             <li>{{ elemento }}</li>
         {% endfor %}
-        <p>Análisis sintáctico CORRECTO de la pila</p>
+        <p>simon pila correcta</p>
     </div>
     {% else %}
-    <div class="txtarea-pila">
+    <div class="div-bandera">
         {% for elemento in pila %}
             <li>{{ elemento }}</li>
         {% endfor %}
-        <p>Análisis sintáctico INCORRECTO de la pila</p>
+        <p>no papito analisis de la pila es incorrecto</p>
     </div>
     {% endif %}
-
     {% endif %}
 </body>
 </html>
